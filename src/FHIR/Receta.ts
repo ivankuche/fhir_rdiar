@@ -1,9 +1,8 @@
-const recetaFHIR= (MedicationRequest,Patient,Coverage,Practitioner,Location) => {
+const recetaFHIR= (BundleID,MedicationRequest,Patient,Coverage,Practitioner,Location) => {
 
-    const crypto = require('crypto');
     const receta= {
         resourceType : "Bundle",
-        id : crypto.randomUUID(),
+        id : BundleID,
         meta : {
             profile : ["http://fhir.msal.gob.ar/RDI/StructureDefinition/recetaDigitalRegistroRecetaAR"]
         },

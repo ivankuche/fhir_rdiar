@@ -7,6 +7,16 @@ const narrative= (sentInfo) => {
     return text;
 }
 
+const CoverageDataSet= (sentInfo) => {
+    return {
+        id : sentInfo.CoverageID,
+        beneficiary : sentInfo.PatientUUID,
+        plan: sentInfo.CoveragePlan,
+        number: sentInfo.CoverageBeneficiaryID
+    }
+}
+
+
 const Coverage= (sentInfo) => {
 
     const cobertura= {
@@ -65,4 +75,4 @@ const Coverage= (sentInfo) => {
     return cobertura;
 }
 
-export {Coverage}
+export {Coverage,CoverageDataSet}

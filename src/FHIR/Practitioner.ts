@@ -7,6 +7,18 @@ const narrative= (sentInfo) => {
     return text;
 }
 
+
+const PractitionerDataSet= (sentInfo) => {
+    return {
+        id : sentInfo.PractitionerNPI,
+        dni : sentInfo.PractitionerDNI,
+        name : sentInfo.PractitionerName,
+        telecom: sentInfo.PractitionerTelecom
+    }
+}
+
+
+
 const Practitioner= (sentInfo) => {
 
     const profesional= {
@@ -54,4 +66,4 @@ const Practitioner= (sentInfo) => {
     return profesional;
 }
 
-export {Practitioner}
+export {Practitioner,PractitionerDataSet}

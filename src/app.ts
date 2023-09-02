@@ -107,7 +107,8 @@ app.get('/unidades_tiempo', (req, res) => {
 
 
 app.post('/generarReceta',async (req, res) => {
-  // Prueba del bundle
+
+  // Cargamos las funciones de cada recurso
   const {recetaFHIR}= require('./FHIR/Receta');
   const {MedicationRequest}= require('./FHIR/MedicationRequest');
   const {Patient}= require('./FHIR/Patient');
@@ -115,16 +116,25 @@ app.post('/generarReceta',async (req, res) => {
   const {Practitioner}= require('./FHIR/Practitioner');
   const {Location}= require('./FHIR/Location');
 
-//  outputMessage("Carlo",req.body);
-
+  // Transformamos el request en JSON
   const sentValues= JSON.parse(JSON.stringify(req.body)); 
 
-  // PatientUUID generation
+  // Generacion de los UUID
+  const {v5} = require('uuid');
+
+  const {PatientDataSet}= require('./FHIR/Patient');
+  const {CoverageDataSet}= require('./FHIR/Coverage');
+  const {PractitionerDataSet}= require('./FHIR/Practitioner');
+  const {LocationDataSet}= require('./FHIR/Location');
+
+  sentValues.PatientUUID= v5(Object.entries(PatientDataSet(sentValues)),process.env.NAMESPACE_UUID);
+  sentValues.CoveraegeUUID= v5(Object.entries(CoverageDataSet(sentValues)),process.env.NAMESPACE_UUID);
+  sentValues.PractitionerUUID= v5(Object.entries(PractitionerDataSet(sentValues)),process.env.NAMESPACE_UUID);
+  sentValues.LocationUUID= v5(Object.entries(LocationDataSet(sentValues)),process.env.NAMESPACE_UUID);
+
+  // UUIDs al azar: grupo de medicamentos y bundle
   const crypto = require('crypto');
-  sentValues.PatientUUID= crypto.randomUUID();
-  sentValues.CoveraegeUUID= crypto.randomUUID();
-  sentValues.PractitionerUUID= crypto.randomUUID();
-  sentValues.LocationUUID= crypto.randomUUID();
+  const BundleID= crypto.randomUUID();
   sentValues.MedicationGroupUUID= crypto.randomUUID();
 
   const medications= Object.entries(sentValues).filter((item)=> {
@@ -146,14 +156,42 @@ app.post('/generarReceta',async (req, res) => {
     medicationRequestedList.push(MedicationRequest(sentValues,element));
   });
 
+  // Persistencia de los recursos enviados
+  const rs= require('rocket-store');
+  const path = require('path');
 
-  res.send(recetaFHIR(
+  await rs.options({
+    data_storage_area : path.join(__dirname,path.sep,'data',path.sep,'storage'),
+    data_format       : rs._FORMAT_JSON,
+  });
+
+  const PatientFHIR= Patient(sentValues);
+  let resultadoRS= await rs.post("pacientes",sentValues.PatientUUID,PatientFHIR);
+
+  const CoverageFHIR= Coverage(sentValues);
+  resultadoRS= await rs.post("coberturas",sentValues.CoveraegeUUID,CoverageFHIR);
+
+  const PractitionerFHIR= Practitioner(sentValues);
+  resultadoRS= await rs.post("profesionales",sentValues.PractitionerUUID,PractitionerFHIR);
+
+  const LocationFHIR= Location(sentValues);
+  resultadoRS= await rs.post("establecimientos",sentValues.LocationUUID ,LocationFHIR);
+
+
+  const RecetaFHIR= recetaFHIR(
+    BundleID,
     medicationRequestedList,
-    Patient(sentValues),
-    Coverage(sentValues),
-    Practitioner(sentValues),
-    Location(sentValues)
-  ));
+    PatientFHIR,
+    CoverageFHIR,
+    PractitionerFHIR,
+    LocationFHIR
+  );
+
+  console.log(RecetaFHIR);
+
+  resultadoRS= await rs.post("recetas",BundleID ,RecetaFHIR);
+
+  res.send(RecetaFHIR);
 
 });
 

@@ -7,6 +7,20 @@ const narrative= (sentInfo) => {
     return text;
 }
 
+
+const LocationDataSet= (sentInfo) => {
+    return {
+        refes: sentInfo.LocationREFES,
+        name : sentInfo.LocationName,
+        address : {
+            line : [sentInfo.LocationLine],
+            city : sentInfo.LocationCity,
+            state : sentInfo.LocationState,
+            postalCode : sentInfo.LocationPostalCode
+        }
+    }
+}
+
 const Location= (sentInfo) => {
 
     const ubicacion= {
@@ -44,4 +58,4 @@ const Location= (sentInfo) => {
     return ubicacion;
 }
 
-export {Location}
+export {Location,LocationDataSet}

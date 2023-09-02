@@ -8,6 +8,18 @@ const narrative= (sentInfo) => {
     return text;
 }
 
+const PatientDataSet= (sentInfo) => {
+    return {
+        id : sentInfo.PatientID,
+        dni : sentInfo.PatientDNI,
+        system: sentInfo.SystemHCE,
+        surname: sentInfo.PatientSurnames,
+        name: sentInfo.PatientNames,
+        gender: sentInfo.PatientGender,
+        birthDate: sentInfo.PatientBirthdate,
+    }
+}
+
 const Patient= (sentInfo) => {
     const moment= require('moment')
 
@@ -62,4 +74,4 @@ const Patient= (sentInfo) => {
     return paciente;
 }
 
-export {Patient}
+export {Patient,PatientDataSet}
