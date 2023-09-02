@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Demo RDI_AR</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="estilos.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+</head>
+
+<body>
+  <form name="receta">
+    <div class="container">
+      <div class="block">
+        <h2>Paciente</h2>
+          <div class="form-group">
+            <label for="SystemHCE">SYSTEM DE LA HCE</label>
+            <input type="text" id="SystemHCE" name="SystemHCE" required value="http://SuperHCE.com.ar/Patient",>
+          </div>
+          <div class="form-group miniGrupo">
+            <label for="PatientID">ID</label>
+            <input type="number" id="PatientID" name="PatientID" required value="8932">
+          </div>
+          <div class="form-group miniGrupo">
+            <label for="PatientDNI">DNI</label>
+            <input type="number" id="PatientDNI" name="PatientDNI" required value="28879041">
+          </div>
+          <div class="form-group miniGrupo">
+            <label for="PatientNames">NOMBRES</label>
+            <input type="text" id="PatientNames" name="PatientNames" required value="Juan Carlos">
+          </div>
+          <div class="form-group miniGrupo">
+            <label for="PatientSurnames">APELLIDOS</label>
+            <input type="text" id="PatientSurnames" name="PatientSurnames" required value="Pérez Loizeau">
+          </div>
+          <div class="form-group miniGrupo">
+            <label for="PatientGender">SEXO BIOLÓGICO</label>
+            <select id="PatientGender" name="PatientGender"></select>
+          </div>
+          <div class="form-group miniGrupo">
+            <label for="PatientBirthdate">NACIMIENTO</label>
+            <input type="text" id="PatientBirthdate" name="PatientBirthdate" value="30/03/1983">
+          </div>
+      </div>
+      <div class="block">
+        <h2>Cobertura</h2>
+          <div class="form-group">
+            <label for="CoverageID">OS/PREPAGA</label>
+            <select id="CoverageID" name="CoverageID" required></select>
+          </div>
+          <div class="form-group">
+            <label for="CoveragePlan">PLAN</label>
+            <select id="CoveragePlan" name="CoveragePlan" required></select>
+          </div>
+          <div class="form-group">
+            <label for="CoverageBeneficiaryID">NÚMERO DE AFILIADO</label>
+            <input type="text" id="CoverageBeneficiaryID" name="CoverageBeneficiaryID" required value="431120">
+          </div>
+      </div>
+
+
+
+
+      <div class="block">
+        <h2>Profesional</h2>
+        <div class="form-group miniGrupo">
+          <label for="PractitionerDNI">DNI</label>
+          <input type="number" id="PractitionerDNI" name="PractitionerDNI" required value="17419123">
+        </div>
+        <div class="form-group miniGrupo">
+          <label for="PractitionerNPI">MATRÍCULA</label>
+          <input type="number" id="PractitionerNPI" name="PractitionerNPI" required value="84103">
+        </div>
+        <div class="form-group">
+          <label for="PractitionerName">NOMBRE Y APELLIDO</label>
+          <input type="text" id="PractitionerName" name="PractitionerName" required value="René Favaloro">
+        </div>
+        <div class="form-group">
+          <label for="PractitionerTelecom">TELÉFONO</label>
+          <input type="text" id="PractitionerTelecom" name="PractitionerTelecom" required value="115-103-8321">
+        </div>
+      </div>
+      <div class="block">
+        <h2>Establecimiento</h2>
+          <div class="form-group">
+            <label for="SystemPrescriptor">SYSTEM DEL SISTEMA PRESCRIPTOR</label>
+            <input type="text" id="SystemPrescriptor" name="SystemPrescriptor" required value="http://SuperPrescriptor.com.ar/MedicationRequest",>
+          </div>
+          <div class="form-group">
+            <label for="SystemRepository">SYSTEM DEL REPOSITORIO</label>
+            <input type="text" id="SystemRepository" name="SystemRepository" required value="https://MedicRepositorium.com.ar/fhir",>
+          </div>
+          <div class="form-group">
+            <label for="LocationREFES">CÓDIGO REFES</label>
+            <input type="text" id="LocationREFES" name="LocationREFES" required value="1839231">
+          </div>
+          <div class="form-group">
+            <label for="LocationName">NOMBRE</label>
+            <input type="text" id="LocationName" name="LocationName" required value="Hospital Cosme Fulanito">
+          </div>
+          <div class="form-group">
+            <label for="LocationLine">DIRECCIÓN</label>
+            <input type="text" id="LocationLine" name="LocationLine" required value="Av. Rivadavia 3033">
+          </div>
+          <div class="form-group">
+            <label for="LocationCity">CIUDAD</label>
+            <input type="text" id="LocationCity" name="LocationCity" required value="Monte Grande">
+          </div>
+          <div class="form-group miniGrupo">
+            <label for="LocationState">PROVINCIA</label>
+            <input type="text" id="LocationState" name="LocationState" required value="Buenos Aires">
+          </div>
+          <div class="form-group miniGrupo">
+            <label for="LocationPostalCode">CP</label>
+            <input type="text" id="LocationPostalCode" name="LocationPostalCode" required value="1608">
+          </div>
+      </div>
+
+
+
+
+
+
+
+
+      <div class="blockFull">
+        <h2>Prescripción</h2>
+
+        
+
+        <!--
+        <select id="MedicationFormMedicationType" name="MedicationFormMedicationType" class="MedicationTypeMiniChar">
+          <option value="c" selected>C</option>
+          <option value="g">G</option>
+        </select>
+        -->
+
+        <div class="form-group miniGrupoPrescripcionUltraMini">
+          <label for="MedicationFormAmountOfUnit">UNIDADES</label>
+          <input type="number" id="MedicationFormAmountOfUnit" name="MedicationFormAmountOfUnit" required value="1">
+        </div>
+        <div class="form-group miniGrupoPrescripcion">
+          <label for="MedicationForm">MEDICAMENTO</label>
+          <input type="text" disabled value="Gen." class="MedicationTypeMiniChar" medication-type="g"/>
+          <select id="MedicationFormMedicationGeneric" name="MedicationFormMedicationGeneric" class="MedicationFormMedication"></select>
+          <input type="hidden" name="MedicationFormMedicationSystemGeneric" id="MedicationFormMedicationSystemGeneric" />
+          <br/>
+          <input type="text" disabled value="Com." class="MedicationTypeMiniChar" medication-type="c"/>
+          <select id="MedicationFormMedicationCommercial" name="MedicationFormMedicationCommercial" class="MedicationFormMedication"></select>
+          <input type="hidden" name="MedicationFormMedicationSystemCommercial" id="MedicationFormMedicationSystemCommercial" />
+        </div>
+        <div class="form-group miniGrupoPrescripcion">
+          <label for="reason">MOTIVO</label>
+          <select id="MedicationFormReason" name="MedicationFormReason" class="MedicationFormMedication"></select>
+          <input type="hidden" name="MedicationFormReasonSystem" id="MedicationFormReasonSystem" />
+        </div>
+        <div class="form-group miniGrupoPrescripcionMini">
+          <label for="MedicationFormDuration">DURACIÓN</label>
+          <input type="number" id="MedicationFormDuration" name="MedicationFormDuration" required value="2">
+        </div>
+        <div class="form-group miniGrupoPrescripcionMini">
+          <label for="MedicationFormMaximumDuration">DURACIÓN MÁXIMA</label>
+          <input type="number" id="MedicationFormMaximumDuration" name="MedicationFormMaximumDuration" required value="6">
+        </div>
+        <div class="form-group miniGrupoPrescripcionMini">
+          <label for="MedicationFormDurationUnit">UNIDAD DE DURACIÓN</label>
+          <select id="MedicationFormDurationUnit" name="MedicationFormDurationUnit"></select>
+        </div>
+        <div class="form-group miniGrupoPrescripcionMini">
+          <label for="MedicationFormFrequency">REPETIR X VECES</label>
+          <input type="number" id="MedicationFormFrequency" name="MedicationFormFrequency" required value="2">
+        </div>
+        <div class="form-group miniGrupoPrescripcionMini">
+          <label for="MedicationFormPeriod">CADA</label>
+          <input type="number" id="MedicationFormPeriod" name="MedicationFormPeriod" required value="12">
+        </div>
+        <div class="form-group miniGrupoPrescripcionMini">
+          <label for="MedicationFormFrequencyUnit">UNIDAD DE REPETICIÓN</label>
+          <select id="MedicationFormFrequencyUnit" name="MedicationFormFrequencyUnit"></select>
+        </div>
+        <div class="form-group center">
+          <button name="addMedication" id="addMedication">Agregar medicación</button>
+        </div>
+
+
+        <table id="medicationsTable" border="1" width="100%">
+          <thead>
+            <tr>
+              <th>Unidades</th>
+              <th>Medicamento</th>
+              <th>Motivo</th>
+              <th>Duración</th>
+              <th>Duración máxima</th>
+              <th>Repetición</th>
+              <th>Funciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="sinMedicacion" colspan="7" align="center">
+                No hay medicaciones cargadas
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+
+    </div>
+    <center>
+      <input type="submit" value="Crear Recurso FHIR" />
+      <input type="button" id="validateFHIR" name="validateFHIR" value="Validar Recurso FHIR" />
+      <input type="button" id="submitFHIR" name="submitFHIR" value="Enviar Recurso FHIR a servidor" />
+      <button type="button" id="limpiarFormulario">Limpiar formulario</button>
+    </center>
+  </form>
+  <div class="container">
+    <div class="blockFull">
+      <h2>Recurso FHIR para la receta</h2>
+      <textarea class="textareaFull" id="recursoFHIR" disabled>Pendiente de ser generado</textarea>
+    </div>
+  </div>
+
+  <div id="loadingDialog" title="Esperando respuesta" data-backdrop="static" data-keyboard="false">
+      <div class="whirlpool"></div>
+      <div class="textLoading">
+        <p id="message">CARGANDO</p>
+      </div>
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/i18n/es.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+
+  
+  <script src="jquery.ns-autogrow.min.js"></script>
+  <script src="datepicker-es.js"></script>
+  <script src="funciones.js"></script>
+  <script src="modals.js"></script>
+</body>
+</html>

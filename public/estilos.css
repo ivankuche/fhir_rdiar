@@ -1,0 +1,202 @@
+.ui-autocomplete-loading {
+  background: white url('images/ui-anim_basic_16x16.gif') right center no-repeat;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+  }
+
+  .block {
+    flex-basis: calc(25% - 20px);
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  .block h2, .blockFull h2 {
+    text-align: center;
+  }
+
+  .blockFull {
+    flex-basis: calc(100% - 20px);
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 768px) {
+    .block {
+      flex-basis: 100%;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    vertical-align: text-top;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  input[type="number"] {
+    width: 96%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .miniGrupo {
+    display: inline-block;
+    width: 48% !important;
+  }
+
+  .miniGrupo input {
+    display: inline-block;
+    width: 70% !important;
+  }
+
+ .miniGrupo select {
+    display: inline-block;
+    width: 80% !important;
+  }
+
+  .miniGrupoPrescripcion {
+    display: inline-block;
+    width: 45% !important;
+  }
+
+  .miniGrupoPrescripcion input {
+    display: inline-block;
+    width: 90%;
+  }
+
+ .miniGrupoPrescripcion select {
+    display: inline-block;
+    width: 95%;
+  }
+
+  .miniGrupoPrescripcionMini {
+    display: inline-block;
+    width: 30% !important;
+  }
+
+  .miniGrupoPrescripcionMini input {
+    display: inline-block;
+    width: 70% !important;
+  }
+
+ .miniGrupoPrescripcionMini select {
+    display: inline-block;
+    width: 80% !important;
+  }
+
+  .miniGrupoPrescripcionUltraMini {
+    display: inline-block;
+    width: 8% !important;
+  }
+
+  .miniGrupoPrescripcionUltraMini input {
+    display: inline-block;
+    width: 30% !important;
+  }
+
+ .miniGrupoPrescripcionUltraMini select {
+    display: inline-block;
+    width: 80% !important;
+  }
+
+
+  .MedicationTypeMiniChar {
+    width: 6% !important;
+  }
+  
+  .MedicationFormMedication {
+    width: 93% !important;
+  }
+
+  .textareaFull {
+    width: 100%;
+  }
+
+  .error {
+    color: red;
+  }
+
+  table tr td {
+    text-align: center;
+  }
+
+.select2-selection__rendered {
+    line-height: 31px !important;
+}
+.select2-container .select2-selection--single {
+    height: 35px !important;
+}
+.select2-selection__arrow {
+    height: 34px !important;
+}
+
+#submitFHIR {
+  display: none;
+  background-color: rgb(90, 248, 90);
+}
+
+#validateFHIR {
+  display: none;
+  background-color: #f1b739;
+}
+
+#limpiarFormulario {
+  background-color: rgba(255, 0, 0, 0.623);
+}
+
+.ui-dialog-titlebar-close {
+  display: none;
+}
+
+.whirlpool {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #3498db;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+  /*position: absolute;*/
+  top: 50%;
+  left: 50%;
+  margin: 30px;
+}
+
+.textLoading, .textLoading p {
+  text-align: center;
+  font-weight: bold;
+  margin: 0px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*
+#loadingDialog {
+  min-height: 11em!important;
+}
+*/

@@ -1,0 +1,5 @@
+[
+    { "id": "329653008", "name": "ibuprofeno 400 mg por cada comprimido para administración oral", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/CSMedicamentosGenericosSCT" },
+    { "id": "374646004", "name": "amoxicilina 500 mg por cada comprimido para administración oral", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/CSMedicamentosGenericosSCT" },
+    { "id": "318956006", "name": "losartán potásico 50 mg por cada comprimido para administración oral", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/CSMedicamentosGenericosSCT" }
+]

@@ -1,0 +1,8 @@
+[
+    { "id": "134571000221104", "name": "COPIRON 400 MG [IBUPROFENO 400 MG] COMPRIMIDO RECUBIERTO", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/CSMedicamentosComercialesSCT" },
+    { "id": "138041000221108", "name": "DOLORSYN [IBUPROFENO 400 MG] COMPRIMIDO", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/CSMedicamentosComercialesSCT" },
+    { "id": "158001000221105", "name": "ALMORSAN [AMOXICILINA TRIHIDRATO 500 MG] COMPRIMIDO RECUBIERTO", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/CSMedicamentosComercialesSCT" },
+    { "id": "131931000221108", "name": "AMIXEN [AMOXICILINA 500 MG] COMPRIMIDO RECUBIERTO", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/CSMedicamentosComercialesSCT" },
+    { "id": "105961000221108", "name": "COZAAREX [LOSARTAN POTASICO 50 MG] COMPRIMIDO", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/CSMedicamentosComercialesSCT" },
+    { "id": "130911000221107", "name": "NITEN [LOSARTAN POTASICO 50 MG] COMPRIMIDO RECUBIERTO    ", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/CSMedicamentosComercialesSCT" }
+]

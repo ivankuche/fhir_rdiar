@@ -1,0 +1,8 @@
+[
+    { "id": 1, "name": "Plan Básico" },
+    { "id": 2, "name": "Plan Familiar" },
+    { "id": 3, "name": "Plan Dental" },
+    { "id": 4, "name": "Plan Preventivo" },
+    { "id": 5, "name": "Plan Materno" },
+    { "id": 6, "name": "Plan Joven" }
+  ]

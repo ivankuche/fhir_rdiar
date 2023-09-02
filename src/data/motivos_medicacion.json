@@ -1,0 +1,5 @@
+[
+    { "id": "25064002", "name": "cefalea", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/csproblemas-salud" },
+    { "id": "195658003", "name": "faringitis bacteriana aguda", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/csproblemas-salud" },
+    { "id": "38341003", "name": "hipertensión arterial", "system": "http://fhir.msal.gob.ar/RDI/CodeSystem/csproblemas-salud" }
+]

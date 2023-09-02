@@ -1,0 +1,9 @@
+[
+  { "id": "s", "name": "Segundos" },
+  { "id": "min", "name": "Minutos" },
+  { "id": "h", "name": "Horas" },
+  { "id": "d", "name": "Días" },
+  { "id": "wk", "name": "Semanas" },
+  { "id": "mo", "name": "Meses" },
+  { "id": "a", "name": "Años" }
+]
