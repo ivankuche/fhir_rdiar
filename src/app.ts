@@ -121,16 +121,18 @@ app.post('/generarReceta',async (req, res) => {
 
   // Generacion de los UUID
   const {v5} = require('uuid');
+  const objectHasher= require('object-hash')
+
 
   const {PatientDataSet}= require('./FHIR/Patient');
   const {CoverageDataSet}= require('./FHIR/Coverage');
   const {PractitionerDataSet}= require('./FHIR/Practitioner');
   const {LocationDataSet}= require('./FHIR/Location');
 
-  sentValues.PatientUUID= v5(Object.entries(PatientDataSet(sentValues)),process.env.NAMESPACE_UUID);
-  sentValues.CoveraegeUUID= v5(Object.entries(CoverageDataSet(sentValues)),process.env.NAMESPACE_UUID);
-  sentValues.PractitionerUUID= v5(Object.entries(PractitionerDataSet(sentValues)),process.env.NAMESPACE_UUID);
-  sentValues.LocationUUID= v5(Object.entries(LocationDataSet(sentValues)),process.env.NAMESPACE_UUID);
+  sentValues.CoveraegeUUID= generateUUID(CoverageDataSet(sentValues));
+  sentValues.PatientUUID= generateUUID(PatientDataSet(sentValues));
+  sentValues.PractitionerUUID= generateUUID(PractitionerDataSet(sentValues));
+  sentValues.LocationUUID= generateUUID(LocationDataSet(sentValues));
 
   // UUIDs al azar: grupo de medicamentos y bundle
   const crypto = require('crypto');
@@ -187,13 +189,19 @@ app.post('/generarReceta',async (req, res) => {
     LocationFHIR
   );
 
-  console.log(RecetaFHIR);
-
   resultadoRS= await rs.post("recetas",BundleID ,RecetaFHIR);
 
   res.send(RecetaFHIR);
 
 });
+
+// Generacion del UUID
+const generateUUID= (values)=> {
+  const {v5} = require('uuid');
+  const objectHasher= require('object-hash')
+
+  return v5(objectHasher.sha1(Object.entries(values)),process.env.NAMESPACE_UUID);
+}
 
 // Validación de receta
 app.post('/validarReceta',async (req, res) => {

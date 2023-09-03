@@ -9,6 +9,7 @@ const narrative= (sentInfo) => {
 
 
 const PractitionerDataSet= (sentInfo) => {
+
     return {
         id : sentInfo.PractitionerNPI,
         dni : sentInfo.PractitionerDNI,
