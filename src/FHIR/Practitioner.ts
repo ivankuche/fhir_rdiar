@@ -63,8 +63,12 @@ const Practitioner= (sentInfo) => {
     );
 
     if (sentInfo.PractitionerTelecom)
-        profesional.resource['telecom']= [sentInfo.PractitionerTelecom];
-
+    {
+        profesional.resource['telecom']= [{
+            system: "phone",
+            value: sentInfo.LocatPractitionerTelecomionTelecom
+        }];
+    }
 
     return profesional;
 }
