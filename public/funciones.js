@@ -421,6 +421,7 @@ $("#validateFHIR").on("click",function (e) {
 
 // Envio del recurso FHIR
 $("#submitFHIR").on("click",function (e) {
+  alert("capo")
   e.preventDefault();
   showLoading();
   $.ajax({

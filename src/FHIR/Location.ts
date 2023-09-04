@@ -47,13 +47,16 @@ const Location= (sentInfo) => {
                 city : sentInfo.LocationCity,
                 state : sentInfo.LocationState,
                 postalCode : sentInfo.LocationPostalCode
-            }
+            },
         },
         request : {
             method : "PUT",
             url : "Location?identifier=http://refes.msal.gob.ar|" + sentInfo.LocationREFES
         }
     };
+
+    if (sentInfo.LocationTelecom)
+        ubicacion.resource['telecom']= [sentInfo.LocationTelecom];
 
     return ubicacion;
 }

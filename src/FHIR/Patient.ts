@@ -23,7 +23,7 @@ const PatientDataSet= (sentInfo) => {
 const Patient= (sentInfo) => {
     const moment= require('moment')
 
-    const paciente= {
+    let paciente= {
         fullUrl : "urn:uuid:" + sentInfo.PatientUUID,
         resource : {
             resourceType : "Patient",
@@ -40,11 +40,6 @@ const Patient= (sentInfo) => {
                     use : "official",
                     system : "http://www.renaper.gob.ar/dni",
                     value : sentInfo.PatientDNI
-                },
-                {
-                    use : "secondary",
-                    system : sentInfo.SystemHCE,
-                    value : sentInfo.PatientID
                 }
             ],
             name : [
@@ -70,6 +65,16 @@ const Patient= (sentInfo) => {
             url : "Patient?identifier=http://www.renaper.gob.ar/dni|" + sentInfo.PatientDNI
         }
     };
+
+
+    if ((sentInfo.SystemHCE) && (sentInfo.PatientID))
+        paciente.resource.identifier.push(
+            {
+                use : "secondary",
+                system : sentInfo.SystemHCE,
+                value : sentInfo.PatientID
+            }
+        );
 
     return paciente;
 }

@@ -98,5 +98,6 @@
     { "id": 97, "name": "OSPEPCEA (Obra Social del Personal de Empleados de Casinos de Entre Ríos" },
     { "id": 98, "name": "OSSAP (Obra Social de los Secretarios de Asistencia a la Salud Pública" },
     { "id": 99, "name": "OSPLAEP (Obra Social del Personal de la Legislatura de la Provincia de Buenos Aires" },
-    { "id": 100, "name": "OSSCP (Obra Social del Sindicato de Camioneros y Choferes de la República Argentina" }
+    { "id": 100, "name": "OSSCP (Obra Social del Sindicato de Camioneros y Choferes de la República Argentina" },
+    { "id": "01", "name": "OSACNS (Obra social de artesanos de las cáscaras de naranja secas)" }
   ]  

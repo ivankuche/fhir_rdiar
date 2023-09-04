@@ -33,7 +33,7 @@ const Coverage= (sentInfo) => {
             },
             identifier : [
                 {
-                    system : "http://ssalud.gob.ar/coberturas-" + sentInfo.CoverageID + "-carnet",
+                    system : sentInfo.CoverageSystem,
                     value : sentInfo.CoverageBeneficiaryID.replace('/','-')
                 }
             ],
