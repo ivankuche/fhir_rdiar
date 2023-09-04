@@ -66,7 +66,6 @@ const Patient= (sentInfo) => {
         }
     };
 
-
     if ((sentInfo.SystemHCE) && (sentInfo.PatientID))
         paciente.resource.identifier.push(
             {

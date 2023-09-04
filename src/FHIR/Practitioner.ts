@@ -66,7 +66,7 @@ const Practitioner= (sentInfo) => {
     {
         profesional.resource['telecom']= [{
             system: "phone",
-            value: sentInfo.LocatPractitionerTelecomionTelecom
+            value: sentInfo.PractitionerTelecom
         }];
     }
 
