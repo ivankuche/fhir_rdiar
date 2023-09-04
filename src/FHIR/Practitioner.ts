@@ -45,12 +45,6 @@ const Practitioner= (sentInfo) => {
                 {
                     text : sentInfo.PractitionerName
                 }
-            ],
-            telecom : [
-                {
-                    system : "phone",
-                    value : sentInfo.PractitionerTelecom
-                }
             ]
         },
         request : {

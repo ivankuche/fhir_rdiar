@@ -58,7 +58,7 @@ const Patient= (sentInfo) => {
                 }
             ],
             gender : sentInfo.PatientGender,
-            birthDate : moment(sentInfo.PatientBirthdate, 'DD/MM/YYYY').format('YYYY-MM-DD')
+            birthDate : moment(sentInfo.PatientBirthdate, 'MM/DD/YYYY').format('YYYY-MM-DD')
         },
         request : {
             method : "PUT",

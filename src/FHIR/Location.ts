@@ -41,13 +41,7 @@ const Location= (sentInfo) => {
                     value : sentInfo.LocationREFES
                 }
             ],
-            name : sentInfo.LocationName,
-            address : {
-                line : [sentInfo.LocationLine],
-                city : sentInfo.LocationCity,
-                state : sentInfo.LocationState,
-                postalCode : sentInfo.LocationPostalCode
-            },
+            name : sentInfo.LocationName
         },
         request : {
             method : "PUT",
@@ -56,7 +50,27 @@ const Location= (sentInfo) => {
     };
 
     if (sentInfo.LocationTelecom)
-        ubicacion.resource['telecom']= [sentInfo.LocationTelecom];
+        ubicacion.resource['telecom']= [{
+            system: "phone",
+            value: sentInfo.LocationTelecom
+    }];
+
+    if (sentInfo.LocationLine || sentInfo.LocationCity || sentInfo.LocationState || sentInfo.LocationPostalCode)
+    {
+        ubicacion.resource['address']= {};
+
+        if (sentInfo.LocationLine)
+            ubicacion.resource['address']['line']= [sentInfo.LocationLine];
+        
+        if (sentInfo.LocationCity)
+            ubicacion.resource['address']['city']= sentInfo.LocationCity;
+
+        if (sentInfo.LocationState)
+            ubicacion.resource['address']['state']= sentInfo.LocationState;
+
+        if (sentInfo.LocationPostalCode)
+            ubicacion.resource['address']['postalCode']= sentInfo.LocationPostalCode;
+    }
 
     return ubicacion;
 }
