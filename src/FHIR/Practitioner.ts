@@ -22,7 +22,7 @@ const PractitionerDataSet= (sentInfo) => {
 
 const Practitioner= (sentInfo) => {
 
-    const profesional= {
+    let profesional= {
         fullUrl : "urn:uuid:" + sentInfo.PractitionerUUID,
         resource : {
             resourceType : "Practitioner",
@@ -35,11 +35,6 @@ const Practitioner= (sentInfo) => {
                 div : narrative(sentInfo),
             },
             identifier : [
-                {
-                    use : "official",
-                    system : "http://www.renaper.gob.ar/dni",
-                    value : sentInfo.PractitionerDNI
-                },
                 {
                     use : "usual",
                     system : "https://sisa.msal.gov.ar/REFEPS",
@@ -63,6 +58,19 @@ const Practitioner= (sentInfo) => {
             url : "Practitioner?identifier=https://sisa.msal.gov.ar/REFEPS|" + sentInfo.PractitionerNPI
         }
     };
+
+    if (sentInfo.PractitionerDNI)
+        profesional.resource.identifier.push(
+            {
+                use : "official",
+                system : "http://www.renaper.gob.ar/dni",
+                value : sentInfo.PractitionerDNI
+            }
+    );
+
+    if (sentInfo.PractitionerTelecom)
+        profesional.resource['telecom']= [sentInfo.PractitionerTelecom];
+
 
     return profesional;
 }
